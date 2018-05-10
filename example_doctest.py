@@ -19,6 +19,11 @@ def group_indices(array):
     [slice(0, 3, None), slice(4, 7, None), slice(8, 10, None)]
 
     """
+    array = np.asarray(array)
+    if array.ndim != 1:
+        msg = 'Excepting a 1D array, got a {}D one.'
+        raise ValueError(msg.format(array.ndim))
+
     diff = np.diff(array)
     diff = np.hstack([np.where(diff != 1)[0], diff.size])
     ref = 0
