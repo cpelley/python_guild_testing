@@ -1,7 +1,8 @@
+import unittest
+
 import numpy as np
 
-import unittest
-from example_doctest import sliceme_one_consequtive_chunk as sliceme
+from example_doctest import sliceme_one_2d_chunk as sliceme
 
 
 class TestAll(unittest.TestCase):

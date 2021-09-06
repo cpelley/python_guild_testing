@@ -34,6 +34,43 @@ def group_indices(array):
     return slices
 
 
+def sliceme_one_2d_chunk(z, y_indx, x_indx):
+    """
+    Fetch a single 2D chunk from the provided array.
+
+    This fictitious function essentially turns the array-like indices into
+    slice objects in order to return a single 2D slice of `z`.
+
+    Parameters
+    ----------
+    z : :class:`numpy.ndarray`
+        The array we would like to slice.
+    y_indx : 1D array-like
+        The 'y' indices we want to slice from the provided array (z).
+    x_indx : 1D array-like
+        The 'x' indices we want to slice from the provided array (z).
+
+    Return
+    ------
+    : :class:`numpy.ndarray`
+        The 'z' array sliced by the provided indices such as to return a single
+        chunk.
+
+    Raises
+    ------
+    ValueError
+        Where a single 2D slice cannot be returned using the provided indices.
+
+    """
+    x_slice = group_indices(x_indx)
+    y_slice = group_indices(y_indx)
+
+    if len(x_slice) != 1 or len(y_slice) != 1:
+        msg = 'Unable to fetch one consecutive chunk.  y_slice:{} x_slice:{}'
+        raise ValueError(msg.format(y_slice, x_slice))
+    return z[y_slice[0], x_slice[0]]
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()

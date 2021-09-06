@@ -1,6 +1,7 @@
+import unittest
+
 import numpy as np
 
-import unittest
 from example_doctest import group_indices
 
 
@@ -25,7 +26,7 @@ class TestExceptions(unittest.TestCase):
         indices = np.array([0, 1, 2, 4, 5, 6, 8, 9]).reshape((2, 4))
         msg = 'Excepting a 1D array, got a 2D one.'
         with self.assertRaisesRegexp(ValueError, msg):
-            res = group_indices(indices)
+            group_indices(indices)
 
 
 if __name__ == '__main__':

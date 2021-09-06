@@ -1,8 +1,8 @@
-import mock
-import numpy as np
-
 import unittest
-from example_doctest import sliceme_one_consequtive_chunk as sliceme
+
+import mock
+
+from example_doctest import sliceme_one_2d_chunk as sliceme
 
 
 class TestAll(unittest.TestCase):
@@ -34,9 +34,9 @@ class TestExceptions(unittest.TestCase):
             # Make it easy to check ordering of how y and x are used.
             group_ind_patched.side_effect = lambda x: [x, x]
 
-            msg = 'Unable to fetch one consequtive chunk'
+            msg = 'Unable to fetch one consecutive chunk'
             with self.assertRaisesRegexp(ValueError, msg):
-                res = sliceme(z, mock.sentinel.y, mock.sentinel.x)
+                sliceme(z, mock.sentinel.y, mock.sentinel.x)
 
 
 if __name__ == '__main__':
