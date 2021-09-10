@@ -17,6 +17,11 @@ def group_indices(array):
     -------
     : iterable of slice objects
 
+    Examples
+    --------
+
+    >>> from nslice import group_indices
+    >>> import numpy as np
     >>> indices = np.array([0, 1, 2, 4, 5, 6, 8, 9])
     >>> group_indices(indices)
     [slice(0, 3, None), slice(4, 7, None), slice(8, 10, None)]
