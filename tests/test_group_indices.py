@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from example_doctest import group_indices
+from nslice import group_indices
 
 
 class Test1D(unittest.TestCase):
@@ -25,7 +25,7 @@ class TestExceptions(unittest.TestCase):
     def test_nd(self):
         indices = np.array([0, 1, 2, 4, 5, 6, 8, 9]).reshape((2, 4))
         msg = 'Excepting a 1D array, got a 2D one.'
-        with self.assertRaisesRegexp(ValueError, msg):
+        with self.assertRaisesRegex(ValueError, msg):
             group_indices(indices)
 
 

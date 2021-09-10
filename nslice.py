@@ -1,6 +1,9 @@
 import numpy as np
 
 
+__version__ = "0.1"
+
+
 def group_indices(array):
     """
     Group an array representing indices into an iterable of slice objects.
@@ -34,21 +37,21 @@ def group_indices(array):
     return slices
 
 
-def sliceme_one_2d_chunk(z, y_indx, x_indx):
+def get_array_slice(z, indices):
     """
-    Fetch a single 2D chunk from the provided array.
+    Fetch a single chunk from the provided array.
 
     This fictitious function essentially turns the array-like indices into
-    slice objects in order to return a single 2D slice of `z`.
+    slice objects in order to return a single N-dimensional slice of `z`.
+    The dimensionality of this chunk will match the dimensionality of the
+    provided array.
 
     Parameters
     ----------
     z : :class:`numpy.ndarray`
         The array we would like to slice.
-    y_indx : 1D array-like
-        The 'y' indices we want to slice from the provided array (z).
-    x_indx : 1D array-like
-        The 'x' indices we want to slice from the provided array (z).
+    indices : iterable of 1D array-like objects
+        Indices we want to slice from the provided array (z) for each dimension.
 
     Return
     ------
@@ -59,16 +62,17 @@ def sliceme_one_2d_chunk(z, y_indx, x_indx):
     Raises
     ------
     ValueError
-        Where a single 2D slice cannot be returned using the provided indices.
+        Where a single chunk cannot be returned using the provided indices.
 
     """
-    x_slice = group_indices(x_indx)
-    y_slice = group_indices(y_indx)
-
-    if len(x_slice) != 1 or len(y_slice) != 1:
-        msg = 'Unable to fetch one consecutive chunk.  y_slice:{} x_slice:{}'
-        raise ValueError(msg.format(y_slice, x_slice))
-    return z[y_slice[0], x_slice[0]]
+    groups = []
+    for ind, index_array in enumerate(indices):
+        groups.append(group_indices(index_array))
+        if len(groups[-1]) != 1:
+            msg = f"Unable to fetch one consecutive chunk for dimension {ind}"
+            raise ValueError(msg)
+        groups[-1] = groups[-1][0]
+    return z[tuple(groups)]
 
 
 if __name__ == "__main__":
