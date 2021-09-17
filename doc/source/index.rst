@@ -13,6 +13,7 @@ This package along with this documentation is intended to support the :download:
    :caption: Contents:
 
    doctest.rst
+   unittest.rst
 
 
 Indices and tables

@@ -16,11 +16,13 @@ class TestAll(unittest.TestCase):
             res = sliceme(z, [mock.sentinel.y, mock.sentinel.x])
 
         # if the API of group_ind_patched was any more complicated, we could
-        # check what we pass it.
+        # check what we pass it.  We leave that for the integration test.
         # ...
 
-        # Check what is actually returned
-        self.assertEqual(res, z[mock.sentinel.y, mock.sentinel.x])
+        # Check how the getitem was called
+        z.__getitem__.assert_called_once_with((mock.sentinel.y, mock.sentinel.x))
+        # Check what is actually returned is the getitem return
+        self.assertEqual(res, z[mock.sentinel.x, mock.sentinel.y])
 
 
 class TestExceptions(unittest.TestCase):
