@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unittest &mdash; nslice  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Doctests" href="doctest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nslice
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="doctest.html">Doctests</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#other-testing-frameworks">Other testing frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-testing">Advanced testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#integration-tests">integration tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#acceptance-tests">acceptance tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#code-style-checks">Code style checks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#useful-tools">Useful tools</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nslice</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Unittest</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/unittest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="unittest">
+<h1>Unittest<a class="headerlink" href="#unittest" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Unit testing is the idea of testing the ‘smallest’ separable (reasonable) source ‘unit’.</p></li>
+<li><p>These should run very fast.</p></li>
+<li><p>Python <a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a> is the primary unit test framework, allowing us to test in a standard and easy way.
+- The framework is not exclusive to the category known as unit testing.
+- Many other testing frameworks exist, however these most often are built upon this unittest package.  We will mention some of the most notable later.</p></li>
+<li><p>Generally, each code pathway represents a unit to be tested and is done at the function level.  Tools like McCabe Cyclomatic Complexity metric calculate test coverage or ‘code complexity’ relates to this concept by identifying code pathways.</p></li>
+</ul>
+<p>In this dummy package, we provide examples unit tests:
+<a class="reference external" href="https://github.com/cpelley/python_guild_testing/blob/master/tests/test_get_array_slice.py">test_get_array_slice.py</a> for unittesting the
+<a class="reference internal" href="nslice.html#nslice.get_array_slice" title="nslice.get_array_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">nslice.get_array_slice()</span></code></a> function and <a class="reference external" href="https://github.com/cpelley/python_guild_testing/blob/master/tests/test_group_indices.py">test_get_array_slice.py</a>
+for unittesting the <a class="reference internal" href="nslice.html#nslice.group_indices" title="nslice.group_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">nslice.group_indices()</span></code></a> function of our package.</p>
+<p>A good approach is to structure tests in such a way that it reflects the hierarchy and layout of the code.
+This aids transparency, discoverability and maintenance. To illustrate, if we were to test a class method: <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;.&lt;module&gt;.&lt;Class&gt;.&lt;method&gt;</span></code>,
+we would then have an associated unittest at <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;/tests/&lt;module&gt;/&lt;class&gt;/test_&lt;method&gt;.py</span></code>.</p>
+<p>Note that the prefix of ‘<a href="#id3"><span class="problematic" id="id4">test_</span></a>’ is by default a means to aid discoverability and identification of tests and that it is good practice to test all public functions and classes.</p>
+<section id="other-testing-frameworks">
+<h2>Other testing frameworks<a class="headerlink" href="#other-testing-frameworks" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://pypi.org/project/nose/">nose</a> is a useful testing framework built upon the python unittest framework, providing extra capability like running tests in parallel, running and discovery of doctests, useful additional syntax in writing tests etc.
+However, nose has been deprecated and should likely no longer be the chosen framework for new packages.</p>
+<p><a class="reference external" href="https://pytest.org/">pytest</a> is good alternative to nose and is increasingly one of the most popular testing
+frameworks, with out of the box benefits including improved readability of test output.
+It also provides potentially useful extra capability when writing tests and well as a plug-in based approach to further capabilities still (like parallel running of tests).</p>
+</section>
+<section id="advanced-testing">
+<h2>Advanced testing<a class="headerlink" href="#advanced-testing" title="Permalink to this headline">¶</a></h2>
+<p>Arguably a more advanced tool in aid of unit testing is with use of
+<a class="reference external" href="https://docs.python.org/3/library/unittest.mock.html">unittest.mock</a>.  Useful for replacing parts of
+your system under test with mock objects and allowing us to make assertions about how they have been used.
+In the strict sense, this enables us to test our ‘unit’ in true isolation of other code.  Care should be given when
+using such tools, since overuse can lead down a rabbit hole making the code under test difficult to change as tests
+become increasingly complex and difficult to understand.</p>
+<p>Potentially we might also have an integration test to ensure this class serves its purpose as a component of a larger chain at <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;/tests/&lt;module&gt;/test_integration.py</span></code></p>
+</section>
+</section>
+<section id="integration-tests">
+<h1>integration tests<a class="headerlink" href="#integration-tests" title="Permalink to this headline">¶</a></h1>
+<p>I think it useful to draw a distinction here between unit tests and integration tests.  While unit tests test our
+smallest source ‘unit’, integration tests test these our components (functions/classes etc.) actually successfully
+interact with one another (as we expect).</p>
+<p>For example, let’s say that the output of <code class="docutils literal notranslate"><span class="pre">function1</span></code> gets fed into the input of <code class="docutils literal notranslate"><span class="pre">function2</span></code>, then it would be
+desirable to ensure that these two separate components can indeed interact with one another as we expect.</p>
+<p>An example in this package is <a class="reference external" href="https://github.com/cpelley/python_guild_testing/blob/master/tests/test_integration.py">test_integration.py</a>, which calls the top-level
+public <code class="xref py py-func docutils literal notranslate"><span class="pre">nslice.sliceme()</span></code> function.  This ensures successful interaction between the underlying functions that it
+calls (<a class="reference internal" href="nslice.html#nslice.get_array_slice" title="nslice.get_array_slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">nslice.get_array_slice()</span></code></a> and <a class="reference internal" href="nslice.html#nslice.group_indices" title="nslice.group_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">nslice.group_indices()</span></code></a>) and that it returns a result we expect.</p>
+<p>Integration tests should still be small as reasonable and run very quickly.</p>
+</section>
+<section id="acceptance-tests">
+<h1>acceptance tests<a class="headerlink" href="#acceptance-tests" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Acceptance testing is about ensuring the end-to-end running of your code for one or more usecase.</p></li>
+<li><p>You don’t care so much about the details of how or with what it got to the end result, only that it got there.</p></li>
+<li><p>Array checks, graphical testing, or file checking may be relevant in this context.</p></li>
+<li><p>These may not run fast, though perhaps there are different levels of acceptance testing (full slow real ones and perhaps more frequently run fictitious end-to-end ones?).</p></li>
+<li><p>No guarantee that given an even slightly different usecase that it won’t break your program or worse (return incorrect results) - that’s what unit tests and integration tests are for.</p></li>
+</ul>
+</section>
+<section id="code-style-checks">
+<h1>Code style checks<a class="headerlink" href="#code-style-checks" title="Permalink to this headline">¶</a></h1>
+<p>Familiar code is easy to read and understand and maintain while heavily personalised code preferences are not.</p>
+<p>These standards have basis from experienced software engineers of what has proven to be easier and neater to both
+understand and maintain.</p>
+<p>Typically, for Python these normally have basis in PEP guidelines for good
+style. Such as those for line length, naming conventions (camel case class
+names, …).</p>
+<p>See “zen on python” (<a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">pep 20</a>) as it is worth a read!</p>
+<section id="useful-tools">
+<h2>Useful tools<a class="headerlink" href="#useful-tools" title="Permalink to this headline">¶</a></h2>
+<p>Typical tools of interest for code style/off-line testing include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pycodestyle.pycqa.org/en/latest/intro.html">pycodestyle</a> (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">pep8</a> checks).</p></li>
+<li><p><a class="reference external" href="https://github.com/PyCQA/pyflakes">pyflakes</a> (off-line code error checking).</p></li>
+<li><p><a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> (framework with plug-in support for numerous checks).</p></li>
+<li><p><a class="reference external" href="https://pylint.org/">pylint</a>, for performing a code analysis and scoring it.</p></li>
+<li><p><a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> (code auto formatter).</p></li>
+</ul>
+<p>Of particular note here is “black”, since it allows the developer the freedom to avoid issues around
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">pep8</a> compliance and minimise issues relating to personal preference
+(when it comes to style at least) at code review.  Black takes change of these issues and decides on your behalf.</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="doctest.html" class="btn btn-neutral float-left" title="Doctests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Carwyn
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

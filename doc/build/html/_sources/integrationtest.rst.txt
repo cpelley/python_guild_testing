@@ -1,0 +1,8 @@
+Integration tests
+=================
+
+Integration tests essentially ensure that components successfully interact with one another (as we
+expect). Example: function1 which is a top level API which underneath calls
+function1 and function2, does so successfully.
+
+Should still be small as reasonable and run very quickly.
